@@ -4,6 +4,9 @@ import java8.data.Data;
 import java8.data.Person;
 import org.junit.Test;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 import java.util.List;
 
 /**
@@ -34,7 +37,15 @@ public class Lambda_03_Test {
         // TODO vérifier qu'une personne à un nom qui commence par last
         // TODO vérifier qu'une personne à un age > 0
         // TODO la vérification se fait via une assertion (mot clé assert)
-        PersonProcessor verifyPerson = null;
+        
+        PersonProcessor verifyPerson = new PersonProcessor() {
+			
+			@Override
+			public void process(Person p) {
+				 assertTrue(p.getFirstname().contains("first") && p.getLastname().startsWith("last")&& p.getAge()>0); 
+				
+			}
+		};
 
         assert verifyPerson != null;
 
